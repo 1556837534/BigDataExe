@@ -119,14 +119,14 @@ public class MapReduceSerializedable implements Writable {
      */
     @Override
     public void write(DataOutput dataOutput) throws IOException {
-        dataOutput.write(this.empNo);
+        dataOutput.writeInt(this.empNo);
         dataOutput.writeUTF(this.enName);
         dataOutput.writeUTF(this.job);
-        dataOutput.write(this.mgr);
+        dataOutput.writeInt(this.mgr);
         dataOutput.writeUTF(this.hireDate);
-        dataOutput.write(this.sal);
-        dataOutput.write(this.comm);
-        dataOutput.write(this.deptNo);
+        dataOutput.writeInt(this.sal);
+        dataOutput.writeInt(this.comm);
+        dataOutput.writeInt(this.deptNo);
     }
 
     /**序列化的顺序一定要跟反序列化顺序一样
