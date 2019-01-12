@@ -1,1 +1,4 @@
 问题：  利用MapReduce 实现一个分区  根据员工号的部门号  将相同部门号的员工分到一个区中
+
+
+hadoop jar xx.jar /scott/emp.csv  /output/0112

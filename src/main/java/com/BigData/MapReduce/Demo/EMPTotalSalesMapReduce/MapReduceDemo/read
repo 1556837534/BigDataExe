@@ -1,0 +1,33 @@
+  利用Maven 打包后 需要在jar包中指明对应的 Main 方法入口
+  写 MapReduce 的主要 是在问题的分析  确定 对应的 四个 key-val
+   表 在 hdfs中 的scott 下 dept.csv  emp.csv
+   distinct   ：  字符串去重
+
+   tablejoin  :   多表等值连接
+       hadoop jar b.jar /scott /output/0112/tablejoin   直接指明  /scott MapReduce 会加载 当前目录下的所有文件
+       [root@BigF-master /]# hdfs dfs -cat /output/0112_1/tablejoin/part-r-00000
+       *ACCOUNTING     MILLER,KING,CLARK
+       *RESEARCH       ADAMS,SCOTT,SMITH,JONES,FORD
+       *SALES  TURNER,ALLEN,BLAKE,MARTIN,WARD,JAMES
+       *OPERATIONS
+
+   tableinnerJoin : 多表自连接
+        hadoop jar b.jar /scott/emp.csv /output/0112_2/tablejoin
+
+        [root@BigF-master /]# hdfs dfs -cat /output/0112_2/tablejoin/part-r-00000
+                (KING)
+        SMITH   ()
+        ALLEN   ()
+        WARD    ()
+        JONES   (FORD;SCOTT)
+        MARTIN  ()
+        BLAKE   (JAMES;TURNER;ALLEN;MARTIN;WARD)
+        CLARK   (MILLER)
+        SCOTT   (ADAMS)
+        KING    (BLAKE;JONES;CLARK)
+        TURNER  ()
+        ADAMS   ()
+        JAMES   ()
+        FORD    (SMITH)
+        MILLER  ()
+        [root@BigF-master /]#
