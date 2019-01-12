@@ -31,3 +31,32 @@
         FORD    (SMITH)
         MILLER  ()
         [root@BigF-master /]#
+
+   revertedIndex
+
+        倒排索引
+
+        数据
+            [root@BigF-master ~]# more data1.txt
+            I love Beijing and love Shanghai
+            [root@BigF-master ~]# more data2.txt
+            I love China
+            [root@BigF-master ~]# more data3.txt
+            Beijing is the capital of China
+
+            hdfs dfs -put data*.txt /myindexdata
+
+             hadoop jar b.jar /myindexdata /output/0112_4
+
+        结果
+            [root@BigF-master /]# hdfs dfs -cat /output/0112_4/part-r-00000
+            Beijing (data1.txt:1;data3.txt:1)
+            China   (data3.txt:1;data2.txt:1)
+            I       (data2.txt:1;data1.txt:1)
+            Shanghai        (data1.txt:1)
+            and     (data1.txt:1)
+            capital (data3.txt:1)
+            is      (data3.txt:1)
+            love    (data1.txt:2;data2.txt:1)
+            of      (data3.txt:1)
+            the     (data3.txt:1)

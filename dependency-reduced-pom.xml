@@ -25,7 +25,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.BigData.MapReduce.Demo.EMPTotalSalesMapReduce.MapReduceDemo.tableinnerJoin.TableInnerQueryMain</mainClass>
+                  <mainClass>com.BigData.MapReduce.Demo.EMPTotalSalesMapReduce.MapReduceDemo.revertedIndex.MyIndexMain</mainClass>
                 </transformer>
               </transformers>
             </configuration>
