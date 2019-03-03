@@ -86,6 +86,12 @@
             <version>2.3.0</version>
         </dependency>
 
+        <!-- pig 相关Jar -->
+        <dependency>
+            <groupId>org.apache.pig</groupId>
+            <artifactId>pig</artifactId>
+            <version>0.17.0</version>
+        </dependency>
 
     </dependencies>
     <!--maven 打包插件-->
